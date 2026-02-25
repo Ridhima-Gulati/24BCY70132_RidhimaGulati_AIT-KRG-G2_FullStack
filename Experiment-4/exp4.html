@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Posting Portal</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: #f4f6f9;
+    padding: 30px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* FORM STYLE */
+.form-section {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+}
+
+.form-section h2 {
+    margin-bottom: 20px;
+    color: #0073b1;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+textarea {
+    resize: none;
+}
+
+button {
+    padding: 12px 20px;
+    background: #0073b1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #005582;
+}
+
+/* JOB CARD STYLE */
+.job-listings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.job-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    position: relative;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+}
+
+.job-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0073b1;
+}
+
+.company {
+    font-size: 15px;
+    margin: 5px 0;
+    color: #333;
+}
+
+.location {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.delete-btn {
+    background: #e74c3c;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 6px;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Job Posting Form -->
+    <div class="form-section">
+        <h2>Post a Job</h2>
+        <form id="jobForm">
+            <input type="text" id="title" placeholder="Job Title" required>
+            <input type="text" id="company" placeholder="Company Name" required>
+            <input type="text" id="location" placeholder="Location" required>
+            <textarea id="description" rows="3" placeholder="Job Description" required></textarea>
+            <button type="submit">Post Job</button>
+        </form>
+    </div>
+
+    <!-- Job Listings -->
+    <div class="job-listings" id="jobListings">
+        <!-- Job Cards Will Appear Here -->
+    </div>
+
+</div>
+
+<script>
+document.getElementById("jobForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let title = document.getElementById("title").value;
+    let company = document.getElementById("company").value;
+    let location = document.getElementById("location").value;
+    let description = document.getElementById("description").value;
+
+    let jobCard = document.createElement("div");
+    jobCard.classList.add("job-card");
+
+    jobCard.innerHTML = `
+        <div class="job-title">${title}</div>
+        <div class="company">${company}</div>
+        <div class="location">${location}</div>
+        <div class="description">${description}</div>
+        <button class="delete-btn">Delete</button>
+    `;
+
+    document.getElementById("jobListings").appendChild(jobCard);
+
+    jobCard.querySelector(".delete-btn").addEventListener("click", function() {
+        jobCard.remove();
+    });
+
+    document.getElementById("jobForm").reset();
+});
+</script>
+
+</body>
+</html>

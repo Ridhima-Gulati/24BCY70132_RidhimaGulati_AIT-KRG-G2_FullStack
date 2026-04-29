@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration Form</title>
+
+    <style>
+        /* Page styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Form container */
+        .container {
+            width: 400px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+        }
+
+        /* Heading */
+        h2 {
+            text-align: center;
+        }
+
+        /* Label styling */
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* Input fields */
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #aaa;
+            border-radius: 5px;
+        }
+
+        /* Radio & checkbox inline */
+        .inline {
+            display: inline;
+            width: auto;
+        }
+
+        /* Buttons styling */
+        .btn {
+            margin-top: 15px;
+            padding: 10px;
+            width: 48%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Submit button */
+        .submit-btn {
+            background-color: green;
+            color: white;
+        }
+
+        /* Reset button */
+        .reset-btn {
+            background-color: red;
+            color: white;
+        }
+
+        /* Hover effects */
+        .submit-btn:hover {
+            background-color: darkgreen;
+        }
+
+        .reset-btn:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Student Registration Form</h2>
+
+    <!-- Form starts -->
+    <form>
+
+        <!-- Full Name -->
+        <label>Full Name:</label>
+        <input type="text" placeholder="Enter your name" required>
+
+        <!-- Email -->
+        <label>Email:</label>
+        <input type="email" placeholder="Enter your email" required>
+
+        <!-- Password -->
+        <label>Password:</label>
+        <input type="password" required>
+
+        <!-- Mobile Number -->
+        <label>Mobile Number:</label>
+        <input type="tel" placeholder="Enter mobile number">
+
+        <!-- Gender -->
+        <label>Gender:</label>
+        <input type="radio" name="gender" class="inline"> Male
+        <input type="radio" name="gender" class="inline"> Female
+
+        <!-- Course Dropdown -->
+        <label>Course:</label>
+        <select>
+            <option>Select Course</option>
+            <option>B.Tech</option>
+            <option>BCA</option>
+            <option>MCA</option>
+        </select>
+
+        <!-- Skills -->
+        <label>Skills:</label>
+        <input type="checkbox" class="inline"> HTML
+        <input type="checkbox" class="inline"> CSS
+        <input type="checkbox" class="inline"> JavaScript
+
+        <!-- Address -->
+        <label>Address:</label>
+        <textarea rows="3"></textarea>
+
+        <!-- Buttons -->
+        <br><br>
+        <button type="submit" class="btn submit-btn">Submit</button>
+        <button type="reset" class="btn reset-btn">Reset</button>
+
+    </form>
+</div>
+
+</body>
+</html>
